@@ -4,6 +4,32 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+const url="http://mimicServer.example.com"
+ 
+document.addEventListener('DOMContentLoaded', () => {
+  clickHeart();
+});
+
+function clickHeart() {
+  mimicServerCall(url, {})
+  .then( () => {
+    hearts.forEach( (heart) => {
+      heart.addEventListener('click', changeHeart);
+    })
+  })
+  .catch( (error) => {error.classList.remove("hidden")})
+  let hearts = document.querySelectorAll('span.like-glyph');
+}
+
+function changeHeart() {
+  if (this.innerText === EMPTY_HEART) {
+    this.innerText = FULL_HEART
+    this.classList.add("activated-heart")
+  } else {
+    this.innerText = EMPTY_HEART
+    this.classList.remove("activated-heart")
+  }
+}
 
 
 
