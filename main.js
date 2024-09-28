@@ -3,9 +3,11 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+let modalId = document.getElementById("modal");
+modalId.hidden();
 
 
-
+// add .hide to id === modal so when page loads we do not see it.
 
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
